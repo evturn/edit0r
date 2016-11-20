@@ -1,0 +1,180 @@
+@font-face {
+  font-family: 'OperatorMono';
+  src: url('../dist/fonts/OperatorMono/OperatorMono-BoldItalic.otf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OperatorMono';
+  src: url('../dist/fonts/OperatorMono/OperatorMono-Book.otf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OperatorMono';
+  src: url('../dist/fonts/OperatorMono/OperatorMono-BookItalic.otf');
+  font-weight: 500;
+  font-style: italic;
+}
+
+.output {
+  position: relative;
+  margin-top: 0;
+  right: 0;
+  left: 50%;
+  bottom: 0;
+  overflow: auto;
+  padding: 10px;
+  padding-left: 20px;
+  color: #444;
+  font-weight: 200;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+.root {
+
+}
+
+.root:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.output {
+  background-color: #fefefe;
+}
+
+.input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+}
+
+:global .cm-s-monokai pre .cm-variable-2 {
+  color: #66D9EF;
+}
+
+:global .cm-header-2 {
+  color: #00ff66;
+}
+
+:global .cm-header-1 {
+  color: #00ff66;
+}
+
+:global .cm-s-monokai span.cm-comment {
+  color: #75715E;
+}
+
+:global .cm-s-monokai.CodeMirror {
+  overflow: auto;
+  height: 100%;
+}
+
+:global .CodeMirror {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: 100%;
+  font-size: 14px;
+  font-family: 'OperatorMono';
+  letter-spacing: 0.3px;
+}
+
+:global .hljs-keyword {
+  color: #F92672;
+}
+
+:global .hljs-string {
+  color: #00ff66;
+}
+
+:global .hljs-tag {
+  color: #ffffff;
+}
+
+:global .js .hljs-function .hljs-function .hljs-function {
+  color: #66D9EF;
+}
+
+:global .js .hljs-function .hljs-keyword,
+:global .js .hljs-class .hljs-keyword {
+  color: #66D9EF;
+  font-weight: 400;
+}
+
+:global .hljs-name {
+  color: #F92672;
+}
+
+:global .js .hljs-class .hljs-title,
+:global .js .hljs-function .hljs-title {
+  color: #ffe600;
+  font-weight: 600;
+}
+
+:global .hljs-title,
+:global .hljs-attr {
+  color: #ffe600;
+}
+
+:global .hljs-params {
+  color: #FF6600;
+}
+
+:global .js.hljs {
+  background-color: #111111;
+  color: #fff;
+}
+
+pre {
+  border: 1px solid #F8F8F2;
+  color: #fff;
+}
+
+pre code {
+  font-family: 'OperatorMono';
+  background-color: '#f8f8f8';
+  font-size: 14px;
+}
+
+code {
+  font-family: 'OperatorMono';
+  background-color: #eee;
+  color: #000;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+h1 code {
+  font-size: 3.5vw;
+}
+
+h2 code {
+  font-size: 3vw;
+}
+
+h3 code {
+  font-size: 2vw;
+}
+
+h4 code {
+  font-size: 16px;
+}
+
+blockquote {
+  color: #666;
+  margin: 0;
+  padding-left: 3em;
+  border-left: 0.5em #eee solid;
+}

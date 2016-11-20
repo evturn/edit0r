@@ -1,37 +1,54 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import Edit0rInput from './Edit0rInput'
+import Edit0rOutput from './Edit0rOutput'
+import CodeBlock from './CodeBlock'
+import source from './placeholder-markdown'
+import css from './style.css'
 
-const CodeMirror = window.CodeMirrorEditor
-
-class Edit0r extends Component {
+class Edit0r extends Component{
   constructor(props) {
     super(props)
-    this.onInputChange = this.onInputChange.bind(this)
+    this.onMarkdownChange = this.onMarkdownChange.bind(this)
+    this.myBodyIsReady = this.myBodyIsReady.bind(this)
   }
 
   static displayName = 'Edit0r'
 
-  static propTypes = {
-    onChange: PropTypes.func.isRequired,
-    value: PropTypes.string,
+  state = {
+    source,
+    mode: 'raw',
+    style: {
+      marginTop: 0
+    }
+  }
+  renderers = Object.assign({}, Edit0rOutput.renderers, { CodeBlock })
+
+
+  onMarkdownChange(e) {
+    this.setState({source: e.target.value})
   }
 
-  onInputChange(e) {
-    this.props.onChange(e.target.value)
+  myBodyIsReady(x) {
+    this.setState({style: {marginTop: `${x > 0 ? -Math.abs(x) : 0}%`}})
   }
 
   render() {
-    const { myBodyIsReady, value } = this.props
+    const { source, mode, style } = this.state
     return (
-      <form
-        style={{height: `100%`}}
-        className='editor pure-form'>
-        <CodeMirror
-          myBodyIsReady={myBodyIsReady}
-          mode='markdown'
-          theme='monokai'
-          value={value}
-          onChange={this.onInputChange} />
-      </form>
+      <div className={css.root}>
+        <Edit0rInput
+          className={css.input}
+          value={source}
+          myBodyIsReady={this.myBodyIsReady}
+          onChange={this.onMarkdownChange} />
+        <Edit0rOutput
+          className={css.output}
+          style={style}
+          source={source}
+          renderers={this.renderers}
+          skipHtml={false}
+          escapeHtml={false} />
+      </div>
     )
   }
 }
