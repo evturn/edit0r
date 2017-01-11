@@ -12,11 +12,11 @@ const CWD = process.cwd()
 const config = {
   entry: [
     'webpack-hot-middleware/client',
-    path.join(CWD, 'demo', 'src')
+    path.join(CWD, 'src')
   ],
 
   output: {
-    path: path.join(CWD, 'demo', 'build'),
+    path: path.join(CWD, 'build'),
     filename: '[name].js',
     chunkFilename: '[name].chunky.mclover.js',
   },
@@ -66,7 +66,7 @@ const config = {
     new WriteFilePlugin({log: false}),
     new ExtractTextPlugin('[name].[contenthash].css'),
     new HtmlWebpackPlugin({
-      template: 'demo/dist/index.html',
+      template: 'public/index.html',
       title: 'Edit0r - A place for friends©',
       filename: 'index.html',
       appMountId: 'main',

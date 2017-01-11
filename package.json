@@ -57,11 +57,7 @@
       "add-module-exports"
     ]
   },
-  "author": {
-    "name": "Evan Turner",
-    "url": "http://evturn.com",
-    "github": "http://github.com/evturn",
-    "npm": "https://www.npmjs.com/~evturn"
-  },
+  "repository": "git@github.com:evturn/edit0r.git",
+  "author": "Evan Turner <ev@evturn.com>",
   "license": "MIT"
 }

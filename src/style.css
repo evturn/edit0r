@@ -1,20 +1,20 @@
 @font-face {
   font-family: 'OperatorMono';
-  src: url('../dist/fonts/OperatorMono/OperatorMono-BoldItalic.otf');
+  src: url('../public/fonts/OperatorMono/OperatorMono-BoldItalic.otf');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'OperatorMono';
-  src: url('../dist/fonts/OperatorMono/OperatorMono-Book.otf');
+  src: url('../public/fonts/OperatorMono/OperatorMono-Book.otf');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'OperatorMono';
-  src: url('../dist/fonts/OperatorMono/OperatorMono-BookItalic.otf');
+  src: url('../public/fonts/OperatorMono/OperatorMono-BookItalic.otf');
   font-weight: 500;
   font-style: italic;
 }
