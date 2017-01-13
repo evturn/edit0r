@@ -3,12 +3,6 @@ import CM from 'codemirror'
 import css from './style.css'
 
 class Edit0rInput extends Component {
-  constructor(props) {
-    super(props)
-    this.controlMyScroll = this.controlMyScroll.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-  }
-
   static defaultProps = {
     mode: 'markdown',
     theme: 'monokai',
@@ -17,7 +11,7 @@ class Edit0rInput extends Component {
   componentDidMount() {
     this.editor = CM.fromTextArea(this.editorRef, this.props)
     this.editor.on('change', this.handleChange)
-    this.editor.on('scroll', this.controlMyScroll)
+    this.editor.on('scroll', this.updatePosition)
   }
 
   componentDidUpdate() {
@@ -27,12 +21,12 @@ class Edit0rInput extends Component {
     }
   }
 
-  controlMyScroll(e) {
+  updatePosition = e => {
     const { height, scrollTop} = e.doc
     this.props.myBodyIsReady(parseInt((scrollTop / height) * 100))
   }
 
-  handleChange() {
+  handleChange = _ => {
     const { onChange, value } = this.props
     const nextValue = this.editor.getValue()
     if (nextValue !== value) {
@@ -53,14 +47,15 @@ class Edit0rInput extends Component {
       </div>
     )
   }
-  static displayName = 'Edit0rInput'
-  static propTypes = {
-    value: PropTypes.string,
-    onChange: PropTypes.func,
-    myBodyIsReady: PropTypes.func,
-    className: PropTypes.string,
-    style: PropTypes.object,
-  }
+}
+
+Edit0rInput.displayName = 'Edit0rInput'
+Edit0rInput.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  myBodyIsReady: PropTypes.func,
+  className: PropTypes.string,
+  style: PropTypes.object,
 }
 
 export default Edit0rInput

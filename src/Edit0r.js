@@ -5,30 +5,22 @@ import CodeBlock from './CodeBlock'
 import source from './placeholder-markdown'
 import css from './style.css'
 
-class Edit0r extends Component{
-  constructor(props) {
-    super(props)
-    this.onMarkdownChange = this.onMarkdownChange.bind(this)
-    this.myBodyIsReady = this.myBodyIsReady.bind(this)
-  }
+const renderers = Object.assign({}, Edit0rOutput.renderers, { CodeBlock })
 
+class Edit0r extends Component{
   static displayName = 'Edit0r'
 
   state = {
     source,
     mode: 'raw',
-    style: {
-      marginTop: 0
-    }
-  }
-  renderers = Object.assign({}, Edit0rOutput.renderers, { CodeBlock })
-
-
-  onMarkdownChange(e) {
-    this.setState({source: e.target.value})
+    style: {marginTop: 0}
   }
 
-  myBodyIsReady(x) {
+  onChange ({ target }) => {
+    this.setState({source: target.value})
+  }
+
+  updateMargin = x => {
     this.setState({style: {marginTop: `${x > 0 ? -Math.abs(x) : 0}%`}})
   }
 
@@ -39,13 +31,13 @@ class Edit0r extends Component{
         <Edit0rInput
           className={css.input}
           value={source}
-          myBodyIsReady={this.myBodyIsReady}
-          onChange={this.onMarkdownChange} />
+          myBodyIsReady={this.updateMargin}
+          onChange={this.onChange} />
         <Edit0rOutput
           className={css.output}
           style={style}
           source={source}
-          renderers={this.renderers}
+          renderers=renderers}
           skipHtml={false}
           escapeHtml={false} />
       </div>

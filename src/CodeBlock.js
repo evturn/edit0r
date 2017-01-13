@@ -4,7 +4,6 @@ import hljs from 'highlightjs'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/monokai.css'
 import 'highlightjs/styles/monokai-sublime.css'
-
 import css from './style.css'
 
 const CodeBlock = React.createClass({
